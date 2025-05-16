@@ -19,13 +19,12 @@ if selected_file:
     st.write(f"{selected_file} has {df.shape[0]} lines")
 
 if st.button("Lancer l'analyse descriptive"):
-    # Get full path
     selected_path = os.path.join('data', selected_file)
     analyse_dataframe(selected_path)
 
 if st.button("Lancer le LDA"):
-    # Get full path
-    selected_path = os.path.join('intermediate_data', f"{selected_file.split(".")[0]}_processed_texts.parquet")
+    filename=selected_file.split(".")[0]
+    selected_path = os.path.join('intermediate_data', f"{filename}_processed_texts.parquet")
     df_hs = pd.read_parquet(selected_path)
     processed_texts_hs = [list(doc) for doc in df_hs["processed_texts_hs"]]
     model_hs, corpus_hs, dictionary_hs = lda_model(processed_texts_hs, num_topics=num_topics)

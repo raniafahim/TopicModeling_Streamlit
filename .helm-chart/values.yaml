@@ -1,0 +1,9 @@
+shiny:
+  image:
+    repository: cthiounn/topic-modeling
+    tag: "latest"
+  ingress:
+    enabled: true
+    hostname: topic-modeling-accords.lab.sspcloud.fr
+  probe:
+    enabled: false
