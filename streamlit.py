@@ -18,7 +18,7 @@ if selected_file:
     df=pd.read_parquet(os.path.join('data', selected_file))
     st.write(f"{selected_file} has {df.shape[0]} lines")
 
-if st.button("Lancer l'analyse descriptive"):
+if st.button("Lancer l'analysee descriptive"):
     selected_path = os.path.join('data', selected_file)
     analyse_dataframe(selected_path)
 
